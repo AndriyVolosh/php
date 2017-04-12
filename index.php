@@ -6,7 +6,7 @@
     <title>Создать шаблон страницы</title>
 </head>
 <body>
-    <form name="create_template" action="create_template.php" method="GET">
+    <form name="create_template" action="create_template.php" method="POST">
         <label>Укажите цвет фона:
             <input type="color" name="background"/>
         </label>
