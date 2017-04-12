@@ -1,32 +1,35 @@
-<?php
-
-$count = 15;
-$arr = array();
-for ($i = 0; $i < $count; $i++) {
-    $arr[$i] = rand();
-}
-echo '<b>Array with 15 elements:</b>' . '<br/>';
-var_dump($arr);
-echo '<br/>';
-$min = min($arr);
-$max = max($arr);
-echo '<b>Minimal element: </b>' . $min . '<br/><b>Maximal element: </b>' . $max . '<br/>';
-$reversed = array_reverse($arr);
-echo '<b>Reversed array:</b>' . '<br/>';
-var_dump($reversed);
-echo '<br/>';
-$sorted = asort($arr);
-echo '<b>Sorted array:</b>' . '<br/>';
-var_dump($arr);
-echo '<br/>';
-$sum = array_sum($arr);
-echo '<b>Summ of elements:</b> ' . $sum . '<br/>';
-$key = array_search(33, $arr);
-if ($key === FALSE) {
-    echo 'This array don\'t have number 33.' . '<br/>';
-} else {
-    echo 'This array have number 33.' . '<br/>';
-}
-$shuffle = shuffle($arr);
-echo '<b>Shuffled array:</b>' . '<br/>';
-var_dump($arr);
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Convertor</title>
+        <meta charset="UTF-8">
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form name="convertor" action="convertor.php" method="POST">
+            <div class="form-item">
+                <label>From:<input type="number" name="from_val"></label>
+                <select name="from_units">
+                    <option value="m">метры</option>
+                    <option value="in">дюймы</option>
+                    <option value="ft">футы</option>
+                    <option value="mil">мили</option>
+                </select>
+            </div>
+            <div class="form-item">
+                <label>To:
+                    <select name="to_units">
+                        <option value="m">метры</option>
+                        <option value="in">дюймы</option>
+                        <option value="ft">футы</option>
+                        <option value="mil">мили</option>
+                    </select>
+                </label>
+            </div>
+            <div class="form-item">
+                <input type="submit" value="Конвертировать"/>
+            </div>
+        </form>
+    </body>
+</html>
