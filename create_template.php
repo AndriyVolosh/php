@@ -4,11 +4,25 @@
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <meta charset="UTF-8">
         <?php
-        $background = $_GET['background'];
-        $title = $_GET['title'];
-        $url = $_GET['url'];
-        $name_logo = $_GET['name_logo'];
-        $footer = $_GET['footer'];
+        $background = $_POST['background'];
+        $title = $_POST['title'];
+        $url = $_POST['url'];
+        $name_logo = $_POST['name_logo'];
+        $footer = $_POST['footer'];
+        //check data
+        function clean($data){
+            trim($data);
+            strip_tags($data);
+            if(empty($data)){
+                exit('Некорректные данные');
+            }
+            return $data;
+        }
+        $background = clean($background);
+        $title = clean($title);
+        $url = clean($url);
+        $name_logo = clean($name_logo);
+        $footer = clean($footer);
         ?>
         <title><?=$title?></title>
     </head>
