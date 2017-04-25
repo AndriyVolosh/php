@@ -1,32 +1,47 @@
 <?php
+require_once 'config.php';
+$photos=scandir(PHOTOS_DIR);
+var_dump($photos);
+foreach ($photos as $file_name) {
+    if(strpos($file_name,'.')){
+	echo 'cat=';
+	echo $file_name;
+    }
+}
+?>
 
-$count = 15;
-$arr = array();
-for ($i = 0; $i < $count; $i++) {
-    $arr[$i] = rand();
-}
-echo '<b>Array with 15 elements:</b>' . '<br/>';
-var_dump($arr);
-echo '<br/>';
-$min = min($arr);
-$max = max($arr);
-echo '<b>Minimal element: </b>' . $min . '<br/><b>Maximal element: </b>' . $max . '<br/>';
-$reversed = array_reverse($arr);
-echo '<b>Reversed array:</b>' . '<br/>';
-var_dump($reversed);
-echo '<br/>';
-$sorted = asort($arr);
-echo '<b>Sorted array:</b>' . '<br/>';
-var_dump($arr);
-echo '<br/>';
-$sum = array_sum($arr);
-echo '<b>Summ of elements:</b> ' . $sum . '<br/>';
-$key = array_search(33, $arr);
-if ($key === FALSE) {
-    echo 'This array don\'t have number 33.' . '<br/>';
-} else {
-    echo 'This array have number 33.' . '<br/>';
-}
-$shuffle = shuffle($arr);
-echo '<b>Shuffled array:</b>' . '<br/>';
-var_dump($arr);
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+	<div>
+	<?php
+	
+	?>
+	</div>
+    </body>
+</html>
+
+<?php
+
+const ACCEPT_AVATAR_FILE_TYPES=array('image/jpeg',
+    'image/png',
+    'image/gif',
+    );
+const ACCEPT_PHOTO_FILE_TYPES=ACCEPT_AVATAR_FILE_TYPES;
+const MAX_PHOTO_FILE_SIZE=3*1024*1024;
+const AVATARS_DIR='images/avatars/';
+const PHOTOS_DIR='images/gallery/';
+const UPLOAD_FILE_ERRORS_MESSAGES=array(
+    0 => 'There is no error, the file uploaded with success',
+    1 => 'The uploaded file exceeds the upload_max_filesize directive in php.ini',
+    2 => 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form',
+    3 => 'The uploaded file was only partially uploaded',
+    4 => 'No file was uploaded',
+    6 => 'Missing a temporary folder',
+    7 => 'Failed to write file to disk.',
+    8 => 'A PHP extension stopped the file upload.',
+);
