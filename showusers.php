@@ -18,5 +18,6 @@ if (!is_array($users)) {
 		<li><?= $user ?></li>
 	    <?php endforeach; ?>
 	</ul>
+	<a href="reg.php">Регистрация</a>
     </body>
 </html>
